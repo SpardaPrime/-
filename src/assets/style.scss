@@ -1,0 +1,735 @@
+$border-color:#8d9595;
+$background-color:#232b2b;
+$font-color:#fcffff;
+$btn-color:#da3f24;
+$font: 'Exo 2', sans-serif;
+$link-color:#c8b885;
+
+html, body{
+    margin:0;
+    padding: 0;
+    background-color:$background-color;
+    color:$font-color;
+    font-family: 'Exo 2', sans-serif;
+
+}
+
+.body{
+    position: relative;
+}
+.header{
+    position:relative;
+    top: 0;
+    left:0;
+    right:0;
+    box-shadow: 2px 2px 2px black;
+    margin-bottom: 40px;
+    display: flex;
+    background-color:#2f3a3a;
+    *{
+        margin-left:5% ;
+        margin-right:5% ;
+    }
+    a{
+        align-self: center;
+        text-decoration: none;
+        color:$link-color;
+        transition: all 0.3s ease;
+
+        &:hover{
+            color:white;
+        }
+        h2{
+            margin: 0;
+        }
+    }
+
+}
+.active{
+        border-bottom:1px solid $link-color;
+}
+.container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.list-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.list{
+    display: flex;
+    width: 370px;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #8d9595;
+    border-radius: 5px;
+    
+    margin-bottom: 30px;
+
+}
+.options-cart{
+    position: absolute;
+    right:0;
+    bottom:-15px;
+    z-index:10;
+    button{
+        border:1px solid $border-color;
+        background-color:$btn-color;
+        font-family: $font;
+        font-size:20px;
+        border-radius:5px;
+        transition: all 0.3s ease;
+        color:white;
+        &:hover{
+            cursor: pointer;
+            background-color:white;
+            color:$background-color;
+
+        }
+    }
+}
+
+.link-next-page{
+    margin-top:5px;
+    margin-bottom:20px;
+    a{
+        color:$link-color;
+        font-family: $font;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        &:hover{
+            color:white;
+        }
+    }
+}
+
+.list-info{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border-bottom: 1px solid $border-color;
+    margin:5px;    
+    width: 100%;
+
+    div{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content:flex-start;
+        align-items: center;
+        
+        padding:5px 10px;
+        box-sizing:content-box;
+        *{
+            width: 50%;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+    }
+}
+.del-modal{
+    position: fixed;
+    justify-content: center;
+    align-items:center;
+    display:none;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.562);
+    z-index: 99;
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-content: center;
+        background-color:$background-color;
+        text-align: center;
+        z-index: 100;
+        border-radius: 5px;
+        margin: 10px;
+    }
+}
+.del-modal-on{
+    display: flex!important;
+}
+.del-modal-action{
+    display: flex;
+    flex-direction: row!important;
+    flex-wrap: nowrap;
+    justify-content:center;
+    button{
+        border:none;
+        background-color:$btn-color;
+        font-family: $font;
+        font-size: 20px;
+        font-weight: 600;
+        color:$font-color;
+        border-radius:5px;
+        width: 50%;
+        padding:5px 5px ;
+        margin: 0px 5px;
+        transition: all 0.3s ease;
+        &:hover{
+            cursor: pointer;
+            background-color:white;
+            color:$background-color;
+        }
+    }
+}
+
+.err-add-contact{
+    color:rgb(226, 51, 51);
+    display: none;
+}
+
+.add-contact-container{
+    background-color:$background-color;
+    border-radius:5px;
+    width: 40%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding: 20px;
+    text-align: center;
+    div{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content:center;
+        margin-top: 20px;
+        label{
+            align-self:flex-start;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        p{
+            align-self:flex-start;
+            font-weight: 600;
+        }
+        input{
+            height:54px;
+            border:1px solid $border-color;
+            border-radius:5px;
+            font-size: 25px;
+        }
+        
+    }
+}
+.modal-add-contact{
+    position:fixed;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    right:0;
+    top:0;
+    bottom: 0;
+    z-index: 99;
+    background-color:rgba(0, 0, 0, 0.226);
+}
+.show-flex{
+    display: flex!important;
+}
+
+.btn-close-modal{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin-top:10px;
+    margin-right:10px;
+    border:none;
+    font-size: 20px;
+    background-color:rgb(240, 62, 62);
+    border-radius:5px;
+    transition: all 0.3s ease;
+    &:hover{
+        cursor: pointer;
+        background-color:red;
+    }
+}
+.btn-show-addContactModal{
+    font-size: 25px;
+    margin-bottom: 20px;
+    border:none;
+    border-radius:5px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    background-color:$btn-color;
+    color:$font-color;
+    font-family:$font ;
+    margin-top: 20px;
+    &:hover{
+        cursor: pointer;
+        background-color:white;
+        color:black;
+    }
+}
+.contact-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-lists{
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    border:1px solid $border-color;
+    border-radius:5px;
+    margin:5px;
+    div{
+        margin:5px 10px;
+        width: 33%;
+        
+    }
+}
+.button{
+    margin:0 5px;
+        border:1px solid $border-color;
+        border-radius:5px;
+        transition: all 0.3s ease;
+        &:hover{
+            cursor: pointer;
+            background-color:white;
+
+        }
+}
+.contact-action{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    button{
+        width: 100%;
+        margin:0 5px;
+        border:none;
+        background-color:$btn-color;
+        font-family: $font;
+        color:$font-color;
+        border-radius:5px;
+        transition: all 0.3s ease;
+        &:hover{
+            cursor: pointer;
+            background-color:white;
+            color:$background-color;
+
+        }
+    }
+}
+.contact-list-change{
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%!important;
+    background-color:$background-color;
+    border:none;
+    border-radius:5px;
+    margin: 0!important;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    transform-origin: top;
+    transform: scaleY(0);
+    .contact-list-input{
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        label{
+            font-size: 20px;
+        }
+        input{
+            height: 25px;
+            border:1px solid $border-color;
+            border-radius:5px;
+        }
+    }
+    
+}
+.contact-change-action{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+@extend .contact-action ;
+}
+
+.contact-list-change-show{
+    transform: scaleY(1)!important;
+}
+
+.list-cancel-modal{
+    position: absolute;
+    margin:0!important;
+    background-color:$background-color;
+    
+    top:0;
+    left:0;
+    width:100%!important;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    z-index: 105;
+    padding: 5px;
+    box-sizing:border-box;
+    border-radius: 5px;
+    transition:all 0.3s ease;
+    transform-origin: top;
+    transform: scaleY(0);
+    div{
+        height: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items:center;
+        button{
+            @extend .button ;
+            height: 100%;
+            width: 50%;
+            background-color:$btn-color;
+            color:white;
+            border:none;
+            font-family: $font;
+            &:hover{
+                color:$background-color;
+
+            }
+        }
+
+    }
+}
+.head-coontact{
+    position: relative;
+}
+
+.add-new-pole{
+    width: 60%;
+    height: 60.53px;
+    margin-left:auto;
+    margin-right: auto;
+    background-color:$background-color;
+    border:1px solid $border-color;
+    border-radius:5px;
+   padding:5px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    transform-origin: top;
+    transform: scaleY(0);
+    div{
+        margin:5px 10px;
+        width: 33%;
+        padding: 0!important;
+    }
+    .add-new-input{
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        label{
+            font-size: 20px;
+        }
+        input{
+            height: 25px;
+            border:1px solid $border-color;
+            border-radius:5px;
+        }
+    }
+}
+.add-pole-modal{
+    @extend .del-modal ;
+    z-index: 200;
+}
+.add-pole-span{
+    font-size: 15px;
+}
+
+.btn-forward{
+    // position: absolute;
+    // top: 0;
+}
+
+.disabled{
+    background-color:grey!important;
+    color:black!important;
+    
+    &:hover{
+        cursor: auto;
+        border: none;
+        outline:none!important;
+    }
+    &:focus{
+        cursor: auto;
+        border: none!important;
+        outline:none!important;
+
+    }
+    &:link{
+        cursor: auto;
+        border: none!important;
+        outline:none!important;
+
+    }
+    &:active{
+        cursor: auto;
+        border: none!important;
+        outline:none!important;
+
+    }
+    &:target{
+        cursor: auto;
+        border: none!important;
+        outline:none!important;
+
+    }
+}
+
+@media (min-width:250px)and(max-width:500px){
+    .add-contact-container{
+        width: 100%;
+    }
+    .contact-container{
+        width: 100%;
+    }
+    .contact-lists{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        div{
+            width: 100%;
+            *{
+                text-align: center;
+                
+            }
+          
+        }
+    }
+    .contact-action{
+        justify-content: center;
+        width:100%!important;
+        button{
+            width: 100%;
+            height: 50px;
+
+        }
+    }
+    .contact-list-change{
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5px;
+        box-sizing:border-box;
+        .contact-list-input{
+            width: 100%;
+        }
+    }
+    .list-cancel-modal{
+        flex-direction: column;
+        div{
+            button{
+                height: 50px;
+            }
+        }
+        // flex-wrap: wrap;
+    }
+    .add-new-pole{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        text-align: center;
+        padding:5px 10px;
+
+            box-sizing:border-box;
+        div{
+            width: 100%!important;
+            button{
+                height: 40px;
+            }
+            
+        }
+    }
+    .contact-change-action{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        button{
+            width: 100%;
+            height: 50px;
+            
+            border:none;
+            background-color:$btn-color;
+            font-family: $font;
+            color:$font-color;
+            border-radius:5px;
+            transition: all 0.3s ease;
+            
+            &:hover{
+                cursor: pointer;
+                background-color:white;
+                color:$background-color;
+    
+            }
+        }
+       
+    }
+}
+
+@media (min-width:501px)and(max-width:800px){
+    .add-contact-container{
+        width: 80%;
+    }
+    .contact-container{
+        width: 100%;
+    }
+    .contact-lists{
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        div{
+            width: 100%;
+            *{
+                text-align: center;
+                
+            }
+          
+        }
+    }
+    .contact-action{
+        justify-content: center;
+        width:100%!important;
+        button{
+            width: 100%;
+            height: 50px;
+
+        }
+    }
+    .contact-list-change{
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5px;
+        box-sizing:border-box;
+        .contact-list-input{
+            width: 100%;
+        }
+    }
+    .list-cancel-modal{
+        flex-direction: column;
+        div{
+            button{
+                height: 50px;
+            }
+        }
+        // flex-wrap: wrap;
+    }
+    .add-new-pole{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        text-align: center;
+        padding:5px 10px;
+
+            box-sizing:border-box;
+        div{
+            width: 100%!important;
+            button{
+                height: 40px;
+            }
+            
+        }
+    }
+    .contact-change-action{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        button{
+            width: 100%;
+            
+            border:none;
+            background-color:$btn-color;
+            font-family: $font;
+            color:$font-color;
+            border-radius:5px;
+            transition: all 0.3s ease;
+            
+            &:hover{
+                cursor: pointer;
+                background-color:white;
+                color:$background-color;
+    
+            }
+        }
+       
+    }
+}
+@media (min-width:801px)and(max-width:1000px){
+    .add-contact-container{
+        width: 70%;
+    }
+    .contact-container{
+        width: 100%;
+    }
+    .add-pole-span{
+        font-size: 11px;
+    }
+    .add-new-pole{
+        width: 100%;
+    }
+}
+
+@media (min-width:1001px)and(max-width:1500px){
+    .contact-container{
+        width: 90%;
+    }
+    .add-new-pole{
+        width: 90%;
+    }
+    .add-pole-span{
+        font-size: 12px;
+    }
+}
+@media (min-width:1501px)and(max-width:1700px){
+    .contact-container{
+        width: 80%;
+    }
+    .add-new-pole{
+        width: 80%;
+    }
+    // .add-pole-span{
+    //     font-size: 12px;
+    // }
+}

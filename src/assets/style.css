@@ -1,0 +1,711 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #232b2b;
+  color: #fcffff;
+  font-family: "Exo 2", sans-serif;
+}
+
+.body {
+  position: relative;
+}
+
+.header {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 2px 2px 2px black;
+  margin-bottom: 40px;
+  display: flex;
+  background-color: #2f3a3a;
+}
+.header * {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.header a {
+  align-self: center;
+  text-decoration: none;
+  color: #c8b885;
+  transition: all 0.3s ease;
+}
+.header a:hover {
+  color: white;
+}
+.header a h2 {
+  margin: 0;
+}
+
+.active {
+  border-bottom: 1px solid #c8b885;
+}
+
+.container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.list {
+  display: flex;
+  width: 370px;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.options-cart {
+  position: absolute;
+  right: 0;
+  bottom: -15px;
+  z-index: 10;
+}
+.options-cart button {
+  border: 1px solid #8d9595;
+  background-color: #da3f24;
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  color: white;
+}
+.options-cart button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #232b2b;
+}
+
+.link-next-page {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.link-next-page a {
+  color: #c8b885;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.link-next-page a:hover {
+  color: white;
+}
+
+.list-info {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border-bottom: 1px solid #8d9595;
+  margin: 5px;
+  width: 100%;
+}
+.list-info div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 10px;
+  box-sizing: content-box;
+}
+.list-info div * {
+  width: 50%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.del-modal, .add-pole-modal {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.562);
+  z-index: 99;
+}
+.del-modal div, .add-pole-modal div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  background-color: #232b2b;
+  text-align: center;
+  z-index: 100;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.del-modal-on {
+  display: flex !important;
+}
+
+.del-modal-action {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.del-modal-action button {
+  border: none;
+  background-color: #da3f24;
+  font-family: "Exo 2", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fcffff;
+  border-radius: 5px;
+  width: 50%;
+  padding: 5px 5px;
+  margin: 0px 5px;
+  transition: all 0.3s ease;
+}
+.del-modal-action button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #232b2b;
+}
+
+.err-add-contact {
+  color: #e23333;
+  display: none;
+}
+
+.add-contact-container {
+  background-color: #232b2b;
+  border-radius: 5px;
+  width: 40%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+.add-contact-container div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+.add-contact-container div label {
+  align-self: flex-start;
+  font-size: 20px;
+  font-weight: 600;
+}
+.add-contact-container div p {
+  align-self: flex-start;
+  font-weight: 600;
+}
+.add-contact-container div input {
+  height: 54px;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
+.modal-add-contact {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.226);
+}
+
+.show-flex {
+  display: flex !important;
+}
+
+.btn-close-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: none;
+  font-size: 20px;
+  background-color: #f03e3e;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.btn-close-modal:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.btn-show-addContactModal {
+  font-size: 25px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  transition: all 0.3s ease;
+  background-color: #da3f24;
+  color: #fcffff;
+  font-family: "Exo 2", sans-serif;
+  margin-top: 20px;
+}
+.btn-show-addContactModal:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-lists {
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+  margin: 5px;
+}
+.contact-lists div {
+  margin: 5px 10px;
+  width: 33%;
+}
+
+.button, .list-cancel-modal div button {
+  margin: 0 5px;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.button:hover, .list-cancel-modal div button:hover {
+  cursor: pointer;
+  background-color: white;
+}
+
+.contact-action, .contact-change-action {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.contact-action button, .contact-change-action button {
+  width: 100%;
+  margin: 0 5px;
+  border: none;
+  background-color: #da3f24;
+  font-family: "Exo 2", sans-serif;
+  color: #fcffff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.contact-action button:hover, .contact-change-action button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #232b2b;
+}
+
+.contact-list-change {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100% !important;
+  background-color: #232b2b;
+  border: none;
+  border-radius: 5px;
+  margin: 0 !important;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+.contact-list-change .contact-list-input {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.contact-list-change .contact-list-input label {
+  font-size: 20px;
+}
+.contact-list-change .contact-list-input input {
+  height: 25px;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+}
+
+.contact-change-action {
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.contact-list-change-show {
+  transform: scaleY(1) !important;
+}
+
+.list-cancel-modal {
+  position: absolute;
+  margin: 0 !important;
+  background-color: #232b2b;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 105;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+.list-cancel-modal div {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+.list-cancel-modal div button {
+  height: 100%;
+  width: 50%;
+  background-color: #da3f24;
+  color: white;
+  border: none;
+  font-family: "Exo 2", sans-serif;
+}
+.list-cancel-modal div button:hover {
+  color: #232b2b;
+}
+
+.head-coontact {
+  position: relative;
+}
+
+.add-new-pole {
+  width: 60%;
+  height: 60.53px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #232b2b;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+  padding: 5px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+.add-new-pole div {
+  margin: 5px 10px;
+  width: 33%;
+  padding: 0 !important;
+}
+.add-new-pole .add-new-input {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.add-new-pole .add-new-input label {
+  font-size: 20px;
+}
+.add-new-pole .add-new-input input {
+  height: 25px;
+  border: 1px solid #8d9595;
+  border-radius: 5px;
+}
+
+.add-pole-modal {
+  z-index: 200;
+}
+
+.add-pole-span {
+  font-size: 15px;
+}
+
+.disabled {
+  background-color: grey !important;
+  color: black !important;
+}
+.disabled:hover {
+  cursor: auto;
+  border: none;
+  outline: none !important;
+}
+.disabled:focus {
+  cursor: auto;
+  border: none !important;
+  outline: none !important;
+}
+.disabled:link {
+  cursor: auto;
+  border: none !important;
+  outline: none !important;
+}
+.disabled:active {
+  cursor: auto;
+  border: none !important;
+  outline: none !important;
+}
+.disabled:target {
+  cursor: auto;
+  border: none !important;
+  outline: none !important;
+}
+
+@media (min-width: 250px) and (max-width: 500px) {
+  .add-contact-container {
+    width: 100%;
+  }
+
+  .contact-container {
+    width: 100%;
+  }
+
+  .contact-lists {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-lists div {
+    width: 100%;
+  }
+  .contact-lists div * {
+    text-align: center;
+  }
+
+  .contact-action, .contact-change-action {
+    justify-content: center;
+    width: 100% !important;
+  }
+  .contact-action button, .contact-change-action button {
+    width: 100%;
+    height: 50px;
+  }
+
+  .contact-list-change {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .contact-list-change .contact-list-input {
+    width: 100%;
+  }
+
+  .list-cancel-modal {
+    flex-direction: column;
+  }
+  .list-cancel-modal div button {
+    height: 50px;
+  }
+
+  .add-new-pole {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+  }
+  .add-new-pole div {
+    width: 100% !important;
+  }
+  .add-new-pole div button {
+    height: 40px;
+  }
+
+  .contact-change-action {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .contact-change-action button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    background-color: #da3f24;
+    font-family: "Exo 2", sans-serif;
+    color: #fcffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .contact-change-action button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #232b2b;
+  }
+}
+@media (min-width: 501px) and (max-width: 800px) {
+  .add-contact-container {
+    width: 80%;
+  }
+
+  .contact-container {
+    width: 100%;
+  }
+
+  .contact-lists {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .contact-lists div {
+    width: 100%;
+  }
+  .contact-lists div * {
+    text-align: center;
+  }
+
+  .contact-action, .contact-change-action {
+    justify-content: center;
+    width: 100% !important;
+  }
+  .contact-action button, .contact-change-action button {
+    width: 100%;
+    height: 50px;
+  }
+
+  .contact-list-change {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .contact-list-change .contact-list-input {
+    width: 100%;
+  }
+
+  .list-cancel-modal {
+    flex-direction: column;
+  }
+  .list-cancel-modal div button {
+    height: 50px;
+  }
+
+  .add-new-pole {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 5px 10px;
+    box-sizing: border-box;
+  }
+  .add-new-pole div {
+    width: 100% !important;
+  }
+  .add-new-pole div button {
+    height: 40px;
+  }
+
+  .contact-change-action {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+  .contact-change-action button {
+    width: 100%;
+    border: none;
+    background-color: #da3f24;
+    font-family: "Exo 2", sans-serif;
+    color: #fcffff;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .contact-change-action button:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #232b2b;
+  }
+}
+@media (min-width: 801px) and (max-width: 1000px) {
+  .add-contact-container {
+    width: 70%;
+  }
+
+  .contact-container {
+    width: 100%;
+  }
+
+  .add-pole-span {
+    font-size: 11px;
+  }
+
+  .add-new-pole {
+    width: 100%;
+  }
+}
+@media (min-width: 1001px) and (max-width: 1500px) {
+  .contact-container {
+    width: 90%;
+  }
+
+  .add-new-pole {
+    width: 90%;
+  }
+
+  .add-pole-span {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1501px) and (max-width: 1700px) {
+  .contact-container {
+    width: 80%;
+  }
+
+  .add-new-pole {
+    width: 80%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
